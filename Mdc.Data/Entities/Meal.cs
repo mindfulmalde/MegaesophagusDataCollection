@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Mdc.Data
+namespace Mdc.Data.Entities
 {
+    [Table("Meal")]
     public class Meal
     {
         public int Id { get; set; }
@@ -19,7 +20,11 @@ namespace Mdc.Data
 
         // Medicine
         public bool WasMedicineGiven { get; set; }
-        public ICollection<Medicine> Medicines { get; set; }
+        public ICollection<MealMedicine> MealMedicines { get; set; }
         public DateTime? TimeMedicineGiven { get; set; }
+
+        // Dog
+        public int DogId { get; set; }
+        public Dog Dog { get; set; }
     }
 }
