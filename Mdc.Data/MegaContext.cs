@@ -12,6 +12,7 @@ namespace Mdc.Data
         public DbSet<Dog> Dogs { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
+        public DbSet<VomitEpisode> VomitEpisodes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -17,5 +17,6 @@ namespace Mdc.Data.Entities
 
         public ICollection<Meal> Meals { get; set; }
         public ICollection<Medicine> Medicines { get; set; }
+        public ICollection<VomitEpisode> GetVomitEpisodes { get; set; }
     }
 }
