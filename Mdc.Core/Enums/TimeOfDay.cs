@@ -6,9 +6,9 @@ namespace Mdc.Core.Enums
 {
     public enum TimeOfDay
     {
-        Morning = 0,
-        Afternoon = 1,
-        Night = 2,
-        SmallHours = 3
+        SmallHours = 0, // 12am-6am
+        Morning = 1, // 6am-12pm
+        Afternoon = 2, // 12pm-6pm
+        Night = 3 // 6pm-12am
     }
 }

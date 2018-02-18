@@ -10,12 +10,21 @@ namespace Mdc.Data
     {
         public DbSet<Breed> Breeds { get; set; }
         public DbSet<Dog> Dogs { get; set; }
+        public DbSet<DogFood> DogFoods { get; set; }
+        public DbSet<DogFoodBrand> DogFoodBrands { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<VomitEpisode> VomitEpisodes { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            #region Meal Medicine
+
             modelBuilder.Entity<MealMedicine>()
                 .HasKey(mm => new { mm.MealId, mm.MedicineId });
 
@@ -28,6 +37,25 @@ namespace Mdc.Data
                 .HasOne(mm => mm.Medicine)
                 .WithMany(med => med.MealMedicines)
                 .HasForeignKey(mm => mm.MedicineId);
+
+            #endregion
+
+            #region Dog Medicine
+
+            modelBuilder.Entity<DogMedicine>()
+                .HasKey(dm => new { dm.DogId, dm.MedicineId });
+
+            modelBuilder.Entity<DogMedicine>()
+                .HasOne(dm => dm.Dog)
+                .WithMany(d => d.DogMedicines)
+                .HasForeignKey(dm => dm.DogId);
+
+            modelBuilder.Entity<DogMedicine>()
+                .HasOne(dm => dm.Medicine)
+                .WithMany(m => m.DogMedicines)
+                .HasForeignKey(dm => dm.MedicineId);
+
+            #endregion
         }
     }
 }

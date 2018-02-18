@@ -16,7 +16,7 @@ namespace Mdc.Data.Entities
         public Breed Breed { get; set; }
 
         public ICollection<Meal> Meals { get; set; }
-        public ICollection<Medicine> Medicines { get; set; }
+        public ICollection<DogMedicine> DogMedicines { get; set; }
         public ICollection<VomitEpisode> GetVomitEpisodes { get; set; }
     }
 }
