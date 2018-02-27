@@ -18,7 +18,7 @@ namespace Mdc.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseSqlServer("Server=localhost;Database=MegasophDC");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
