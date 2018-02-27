@@ -1,4 +1,4 @@
-﻿using Mdc.Core.Enums;
+﻿using Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
